@@ -22,3 +22,41 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# ChatSpace DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
+### Association
+- has_many :messages
+- has_many :groups
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+### Association
+- has_many :messages
+- belongs_to :user
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text||
+|text|text||
+|users_id|string|null: false, foreign_key: true|
+|groups_id|string|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :group
+
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :group
+- belongs_to :user

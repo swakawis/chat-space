@@ -34,6 +34,7 @@ Things you may want to cover:
 - has_many :messages
 - has_many :users_groups
 - has_many :groups, through: users_groups
+- add_index :users, :user_id, unique: true
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -43,6 +44,7 @@ Things you may want to cover:
 - has_many :messages
 - has_many :users_groups
 - has_many :users, through: users_groups
+- add_index :groups, :group_id, unique: true
 
 ## messagesテーブル
 |Column|Type|Options|

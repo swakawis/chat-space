@@ -29,7 +29,6 @@
 
   .main-chat__message-form
     .form
-      -# = form_for [@messages] do |f|
       .container
         .input-box
           %input.input-box__text{:name => "message", :placeholder => "type a message"}
@@ -37,7 +36,3 @@
             = icon('far', 'image')
             %input{type: "file", class: "input-box__icon__file"}
         %input.send{:value => "Send", :type => "submit"}
-        -#   = f.text_field :text, class: 'container__text'
-        -#   = link_to "#", class: "container__icon" do
-        -#     = icon('far', 'image', class: "container--photo")
-        -# = f.submit "Send", class: 'send'

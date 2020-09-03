@@ -5,18 +5,16 @@
       %h3.top-items__name
         = current_user.name
       .top-items__icons
-      = link_to new_group_path do
-        = icon('far', 'edit', class: "top-items__icons--edit")
-        %span<>
-      = link_to edit_user_path(current_user) do
-        = icon('fas', 'cog', class: "top-items__icons--cog")
-        %span<>
+        = link_to new_group_path do
+          = icon('far', 'edit', class: "top-items__icons__edit")
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: "top-items__icons__edit")
 
   .side-bar__group-list
     - current_user.groups.each do |group|
       .side-bar__group
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .side-bar__group-list--group-name
             = group.name
           .side-bar__group-list--new-message
-            まだメッセージがありません
+            = group.show_last_message

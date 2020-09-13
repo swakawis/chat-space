@@ -1,10 +1,10 @@
 .MessageBox
-  .MessageInfo
-    .MessageInfo__userName
+  .main-chat__message-list__contents
+    .main-chat__message-list__contents--user-name
       = message.user.name
-    .MessageInfo__date
+    .main-chat__message-list__contents--datetime
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-  .Message
+  .main-chat__message-list__text
     - if message.content.present?
       %p.Message__content
         = message.content

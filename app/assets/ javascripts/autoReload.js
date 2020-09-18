@@ -25,11 +25,11 @@ $(function(){
           <div class="main-chat__message-list__contents">
             <div class="main-chat__message-list__contents--user-name">
               ${message.user_name}
+            </div>
+            <div class="main-chat__message-list__contents--datetime">
+              ${message.created_at}
+            </div>
           </div>
-          <div class="main-chat__message-list__contents--datetime">
-            ${message.created_at}
-          </div>
-        </div>
         <div class="main-chat__message-list__text">
           <p class="Message__content">
             ${message.content}
@@ -62,8 +62,8 @@ $(function(){
           insertHTML += buildHTML(message)
         });
         //メッセージが入ったHTMLに、入れ物ごと追加
-        $('.MessageField').append(insertHTML);
-        $('.MessageField').animate({ scrollTop: $('.MessageField')[0].scrollHeight});
+        $('.main-chat__message-list').append(insertHTML);
+        $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
       }
     })
     .fail(function() {
